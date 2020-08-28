@@ -2,6 +2,7 @@ import re
 from tabulate import tabulate
 from lib.query import Query
 import random
+import pdb
 
 
 class Table:
@@ -38,7 +39,7 @@ class Table:
     def from_db(cls, db, table_id):
         table_info = cls.get_schema(db, table_id)
         if table_info:
-            schema_str = cls.schema_re.findall(table_info)[0] = [0].sql
+            schema_str = cls.schema_re.findall(table_info.sql)[0]
             header, types = [], []
             for tup in schema_str.split(', '):
                 c, t = tup.split()
